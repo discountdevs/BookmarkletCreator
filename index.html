@@ -1,0 +1,79 @@
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DiscountDevs Bookmarklet Creator</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+  <style>
+    #editor {
+      position: relative;
+      height: 400px;
+      width: 400px;
+      display: inline-block;
+    }
+
+    input {
+      width: 400px;
+    }
+
+
+
+    body {
+      overflow: hidden;
+    }
+
+
+  </style>
+</head>
+
+<body>
+  <center><h1>Bookmarklet Creator</h1></center>
+  <br><br>
+
+  <div style="width: 100%; overflow: hidden;">
+    <div style="width: 410px; float: left;">
+      <br><br>
+      <input type="text" id="desc" placeholder="Description">
+      <input type="text" id="icon" placeholder="Icon (base64 encoded)">
+      <input type="text" id="tags" placeholder="Tags (seperated by commas)">
+      <input type="text" id="external" placeholder="External script (only one allowed)">
+      <br><br><br>
+      <center><button onclick="createBookmarklet();">Create Bookmark File</button></center>
+    </div>
+    <div style="margin-left: 410px;"> <div id="editor">alert("Hello, World!");</div></div>
+  </div>
+  <br><br><br><br>
+
+  <center>
+  <code id="output">Bookmarklet will output here</code>
+  <br><br>
+  <a href="#" id="linkoutput">Bookmarklet link will appear here</a> <span>&lt;- Drag this link to your bookmarks
+    bar</span>
+    </center>
+
+
+
+  <script src="//ajaxorg.github.io/ace-builds/src-min-noconflict/ace.js" type="text/javascript"
+    charset="utf-8"></script>
+  <script src="https://skalman.github.io/UglifyJS-online/uglify/lib/minify.js"></script>
+  <script src="https://skalman.github.io/UglifyJS-online/uglify/lib/utils.js"></script>
+  <script src="https://skalman.github.io/UglifyJS-online/uglify/lib/ast.js"></script>
+  <script src="https://skalman.github.io/UglifyJS-online/uglify/lib/parse.js"></script>
+  <script src="https://skalman.github.io/UglifyJS-online/uglify/lib/transform.js"></script>
+  <script src="https://skalman.github.io/UglifyJS-online/uglify/lib/scope.js"></script>
+  <script src="https://skalman.github.io/UglifyJS-online/uglify/lib/output.js"></script>
+  <script src="https://skalman.github.io/UglifyJS-online/uglify/lib/compress.js"></script>
+  <script src="https://skalman.github.io/UglifyJS-online/uglify/lib/propmangle.js"></script>
+
+  <script>
+    var editor = ace.edit("editor");
+    editor.getSession().setUseWorker(false);
+    editor.setTheme("ace/theme/monokai");
+    editor.getSession().setMode("ace/mode/javascript");
+  </script>
+  <script src="script.js"></script>
+</body>
+
+</html>
